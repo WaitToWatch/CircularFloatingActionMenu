@@ -1,5 +1,10 @@
 # CircularFloatingActionMenu
 
+---
+@deprecated
+使用的是自己写的fab
+且无法解决虚拟键盘隐藏时的问题
+
 <img src="assets/circularfab.gif">
 
 An animated, customizable circular floating menu for Android, inspired by Path app.

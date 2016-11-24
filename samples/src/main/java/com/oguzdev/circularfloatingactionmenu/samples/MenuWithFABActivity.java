@@ -5,17 +5,19 @@ import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
-public class MenuWithFABActivity extends ActionBarActivity {
+public class MenuWithFABActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,22 +101,22 @@ public class MenuWithFABActivity extends ActionBarActivity {
                                     redActionButtonContentMargin);
 
         final FloatingActionButton leftCenterButton = new FloatingActionButton.Builder(this)
-                                                .setContentView(fabIconStar, fabIconStarParams)
-                                                .setBackgroundDrawable(R.drawable.button_action_red_selector)
+                                                .setContentView(fabIconStar, fabIconStarParams)//star
+                                                .setBackgroundDrawable(R.drawable.button_action_red_selector)//background
                                                 .setPosition(FloatingActionButton.POSITION_LEFT_CENTER)
                                                 .setLayoutParams(starParams)
                                                 .build();
 
         // Set up customized SubActionButtons for the right center menu
         SubActionButton.Builder lCSubBuilder = new SubActionButton.Builder(this);
-        lCSubBuilder.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector));
+//        lCSubBuilder.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_action_blue_selector));
 
         FrameLayout.LayoutParams blueContentParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
-        blueContentParams.setMargins(blueSubActionButtonContentMargin,
-                          blueSubActionButtonContentMargin,
-                          blueSubActionButtonContentMargin,
-                          blueSubActionButtonContentMargin);
-        lCSubBuilder.setLayoutParams(blueContentParams);
+//        blueContentParams.setMargins(blueSubActionButtonContentMargin,// 无用
+//                          blueSubActionButtonContentMargin,
+//                          blueSubActionButtonContentMargin,
+//                          blueSubActionButtonContentMargin);
+//        lCSubBuilder.setLayoutParams(blueContentParams);// 无用
         // Set custom layout params
         FrameLayout.LayoutParams blueParams = new FrameLayout.LayoutParams(blueSubActionButtonSize, blueSubActionButtonSize);
         lCSubBuilder.setLayoutParams(blueParams);
@@ -131,6 +133,11 @@ public class MenuWithFABActivity extends ActionBarActivity {
         lcIcon4.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_location_found));
         lcIcon5.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_headphones));
 
+        lcIcon1.setPadding(blueSubActionButtonContentMargin, blueSubActionButtonContentMargin, blueSubActionButtonContentMargin, blueSubActionButtonContentMargin);
+        lcIcon2.setPadding(blueSubActionButtonContentMargin, blueSubActionButtonContentMargin, blueSubActionButtonContentMargin, blueSubActionButtonContentMargin);
+        lcIcon3.setPadding(blueSubActionButtonContentMargin, blueSubActionButtonContentMargin, blueSubActionButtonContentMargin, blueSubActionButtonContentMargin);
+        lcIcon4.setPadding(blueSubActionButtonContentMargin, blueSubActionButtonContentMargin, blueSubActionButtonContentMargin, blueSubActionButtonContentMargin);
+        lcIcon5.setPadding(blueSubActionButtonContentMargin, blueSubActionButtonContentMargin, blueSubActionButtonContentMargin, blueSubActionButtonContentMargin);
         // Build another menu with custom options
         final FloatingActionMenu leftCenterMenu = new FloatingActionMenu.Builder(this)
                 .addSubActionView(lCSubBuilder.setContentView(lcIcon1, blueContentParams).build())
@@ -145,6 +152,37 @@ public class MenuWithFABActivity extends ActionBarActivity {
                 .build();
 
 
+
+        lcIcon1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MenuWithFABActivity.this, "1", Toast.LENGTH_SHORT).show();
+            }
+        });
+        lcIcon2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MenuWithFABActivity.this, "2", Toast.LENGTH_SHORT).show();
+            }
+        });
+        lcIcon3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MenuWithFABActivity.this, "3", Toast.LENGTH_SHORT).show();
+            }
+        });
+        lcIcon4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MenuWithFABActivity.this, "4", Toast.LENGTH_SHORT).show();
+            }
+        });
+        lcIcon5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MenuWithFABActivity.this, "5", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
